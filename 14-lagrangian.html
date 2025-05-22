@@ -261,7 +261,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span class="header-section-number">15.2.1</span> Method</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">15.2.2</span> Example</a></li>
-  <li><a href="#an-example-for-you-to-try." id="toc-an-example-for-you-to-try." class="nav-link" data-scroll-target="#an-example-for-you-to-try."><span class="header-section-number">15.2.3</span> An example for you to try.</a></li>
+  <li><a href="#an-example-for-you-to-try" id="toc-an-example-for-you-to-try" class="nav-link" data-scroll-target="#an-example-for-you-to-try"><span class="header-section-number">15.2.3</span> An example for you to try</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/BathMASH/zero-to-hero/blob/master/14-lagrangian.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/BathMASH/zero-to-hero/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -290,7 +290,7 @@ window.Quarto = {
 </header>
 
 
-<p>This is a quick start guide to a method of optimization used for when you have multiple variables and another function that constrains them. Handy wavy proofs only here and we’ll only cover situations with two variables.</p>
+<p>This is a quick start guide to a method of optimization used for when you have multiple variables and another function that constrains them. I’m not going to prove anything here and we’ll only cover situations with two variables. It’s also the most complex thing in this guide.</p>
 <section id="tools-needed" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="tools-needed"><span class="header-section-number">15.1</span> Tools needed</h2>
 <p>There are a number of extra mathematical techniques before we can use this method here is a quick overview of both.</p>
@@ -522,6 +522,19 @@ g_y &amp; L_{yx} &amp; L_{yy}
 <p>If <span class="math inline">\(B &gt; 0\)</span> we have a maximum.</p>
 <p>If <span class="math inline">\(B &lt; 0\)</span> we have a minimum.</p>
 <p>This is the opposite way around to the normal derivative test.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hessian Matrix
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The bordered hessian is just a special type of Hessian. The Hessian is a square matrix which contains the second partial derivatives of a multivariable function.</p>
+</div>
+</div>
 </section>
 <section id="example" class="level3" data-number="15.2.2">
 <h3 data-number="15.2.2" class="anchored" data-anchor-id="example"><span class="header-section-number">15.2.2</span> Example</h3>
@@ -557,7 +570,7 @@ L_{\lambda} = -(x^2 +2y^2 - 6) = 0 \tag{3}
 \end{aligned}
 \]</span></p>
 <p>So <span class="math inline">\(x=0\)</span> or <span class="math inline">\(y=\lambda\)</span>.</p>
-<p>From <span class="math inline">\((2))\)</span> we have:</p>
+<p>From <span class="math inline">\((2)\)</span> we have:</p>
 <p><span class="math display">\[
 \begin{aligned}
 x^2 - 4\lambda y &amp;= 0\\
@@ -616,7 +629,7 @@ g_y = 4y
 \]</span></p>
 <p>If <span class="math inline">\(L_x = 2xy - 2\lambda x\)</span> then:</p>
 <p><span class="math display">\[
-L_xx = 2y - 2\lambda
+L_{xx} = 2y - 2\lambda
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[
@@ -673,20 +686,34 @@ B &amp;= 16x^2 + 16x^2y + 16x^2y - 32y^3 + 32\lambda y^2 \\
 \end{aligned}
 \]</span></p>
 <p>Looking at this the sign of <span class="math inline">\(B\)</span> depends just the <span class="math inline">\(y\)</span> (since the <span class="math inline">\(x\)</span> is squared it’s always positive). So <span class="math inline">\(B &gt;0\)</span> when <span class="math inline">\(1+2y&gt;0\)</span> which is when <span class="math inline">\(1&gt;2y\)</span> or <span class="math inline">\(\frac{1}{2} &gt; y\)</span>.</p>
-<p>This means when the <span class="math inline">\(y\)</span> values are less than <span class="math inline">\(\frac{1}{2}\)</span> we have <span class="math inline">\(B&lt;0\)</span> so we have minimum points. Classifying our points we have:</p>
+<p>This means when the <span class="math inline">\(y\)</span> values are less than <span class="math inline">\(\frac{1}{2}\)</span> we have <span class="math inline">\(B&lt;0\)</span> so we have minimum points.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I could have just substituted the values for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> into the Hessian then worked it out numerically instead of dealing with the algebra.</p>
+</div>
+</div>
+<p>Classifying our points we have:</p>
 <p><span class="math inline">\((2,1)\)</span> and <span class="math inline">\((-2,1)\)</span> are maxima.</p>
 <p><span class="math inline">\((2,-1)\)</span> and <span class="math inline">\((-2,-1)\)</span> are minima.</p>
 <p>Phew! So the final answer is <span class="math inline">\((2,1)\)</span> and <span class="math inline">\((-2,1)\)</span> are the maximum values of <span class="math inline">\(x^2y\)</span> subject to <span class="math inline">\(x^2 +2y^2 = 6\)</span>.</p>
 </section>
-<section id="an-example-for-you-to-try." class="level3" data-number="15.2.3">
-<h3 data-number="15.2.3" class="anchored" data-anchor-id="an-example-for-you-to-try."><span class="header-section-number">15.2.3</span> An example for you to try.</h3>
+<section id="an-example-for-you-to-try" class="level3" data-number="15.2.3">
+<h3 data-number="15.2.3" class="anchored" data-anchor-id="an-example-for-you-to-try"><span class="header-section-number">15.2.3</span> An example for you to try</h3>
 <p>Find and classify the critical points of:</p>
 <p><span class="math display">\[
 f(x,y) = x^2+2y^2
 \]</span></p>
 <p>Subject to <span class="math inline">\(g(x,y) = x^2 + y^2 = 1\)</span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -695,9 +722,8 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This isn’t a full solution yet - sorry!</p>
 <p><span class="math inline">\((0,1)\)</span> and <span class="math inline">\((0,-1)\)</span> are maximum values.</p>
 <p><span class="math inline">\((1,0)\)</span> and <span class="math inline">\((-1,0)\)</span> are minimum values.</p>
 </div>
