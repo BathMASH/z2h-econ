@@ -293,7 +293,11 @@ window.Quarto = {
 <p>This is a quick start guide to a method of optimization used for when you have multiple variables and another function that constrains them. I’m not going to prove anything here and we’ll only cover situations with two variables. It’s also the most complex thing in this guide.</p>
 <section id="tools-needed" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="tools-needed"><span class="header-section-number">15.1</span> Tools needed</h2>
-<p>There are a number of extra mathematical techniques before we can use this method here is a quick overview of both.</p>
+<p>There are two extra mathematical techniques before we can use this method here is a quick overview of both.</p>
+<ul>
+<li>Partial differentiation</li>
+<li>Determinants of matrices</li>
+</ul>
 <section id="partial-differentiation" class="level3" data-number="15.1.1">
 <h3 data-number="15.1.1" class="anchored" data-anchor-id="partial-differentiation"><span class="header-section-number">15.1.1</span> Partial differentiation</h3>
 <p>This is when we a function that has multiple variables and we want to differentiate with respect to one variable. For example:</p>
@@ -332,6 +336,15 @@ f_{xx} =  - 2
 f_{xy} = 0
 \]</span></p>
 <p>Since now we differentiate <span class="math inline">\(f_{x}\)</span> with respect to <span class="math inline">\(y\)</span> and get zero.</p>
+<p>The second derivative written in the other notation looks like this:</p>
+<p><span class="math display">\[
+f_{xy} = \frac{\partial^2 z}{\partial x \partial y}
+\]</span></p>
+<p>Now try some questions for yourself.</p>
+<div class="cell">
+<iframe src="https://numbas.mathcentre.ac.uk/question/175769/partial-differentiation-1/embed/?token=cc7bd675-94c9-4ae3-a096-3a7a30ee0219" width="672" height="600px" data-external="1">
+</iframe>
+</div>
 </section>
 <section id="determinants-of-matrices" class="level3" data-number="15.1.2">
 <h3 data-number="15.1.2" class="anchored" data-anchor-id="determinants-of-matrices"><span class="header-section-number">15.1.2</span> Determinants of matrices</h3>
